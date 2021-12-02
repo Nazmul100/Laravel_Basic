@@ -58,16 +58,14 @@
                             <option value="React" {{ $getUser->skill == 'React' ? 'selected' : '' }}>React</option>
                             <option value="Vue" {{ $getUser->skill == 'Vue' ? 'selected' : '' }}>Vue</option>
                         </select>
-                        <div class="invalid-feedback">
-                            Please select a valid state.
-                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2 d-none">
+                        <label for="validationCustom05" class="form-label">Image OLD</label>
+                        <input type="text" name="imageOld" value="{{$getUser->image}}" class="form-control" id="validationCustom05">
                     </div>
                     <div class="col-md-12 mt-2">
                         <label for="validationCustom05" class="form-label">Image</label>
                         <input type="file" name="image" class="form-control" id="validationCustom05">
-                        <div class="invalid-feedback">
-                            Please provide a valid zip.
-                        </div>
                     </div>
 
                     <div class="col-12 mt-3">

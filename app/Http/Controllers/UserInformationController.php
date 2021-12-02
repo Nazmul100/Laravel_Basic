@@ -17,8 +17,8 @@ class UserInformationController extends Controller
      */
     public function index()
     {
-        $Users = User_information::all();
-        return view('CRUD',compact('Users'));
+        $UsersList = User_information::all();
+        return view('CRUD',compact('UsersList'));
     }
 
 
@@ -39,13 +39,16 @@ class UserInformationController extends Controller
      */
     public function create(Request $request)
     {
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('Image'), $imageName);
+
         DB::table('user_informations')->insert([
             'name'=>$request->name,
             'bio'=>$request->bio,
             'skill'=>$request->skill,
             'project'=>$request->project,
             'address'=>$request->address,
-            'image'=>$request->image,
+            'image'=>$imageName,
         ]);
 //        return redirect(view('CRUD'))->with('status','Student Added !!');
         return redirect()->route('CRUD')->with('success',' created successfully.');
@@ -69,6 +72,16 @@ class UserInformationController extends Controller
     }
 
     public function update(Request $request,$id){
+
+
+            if ($request->image) {
+                unlink("Image/" . $request->imageOld);
+
+            }
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('Image'), $imageName);
+
         DB::table('user_informations')
             ->where('id', $id)
             ->update([
@@ -77,12 +90,16 @@ class UserInformationController extends Controller
                 'skill'=>$request->skill,
                 'project'=>$request->project,
                 'address'=>$request->address,
-                'image'=>$request->image,
+                'image'=>$imageName,
             ]);
         return redirect()->route('CRUD')->with('success',' Updated successfully.');
     }
 
     public function delete(Request $request,$id){
+        $getImageData = DB::table('user_informations')->where ('id',$id)->first();
+        if($getImageData->image){
+            unlink("Image/" . $getImageData->image);
+        }
         DB::table('user_informations')->where ('id',$id)->delete();
         return redirect(route('CRUD'))->with ('status','Student Deleted ');
     }

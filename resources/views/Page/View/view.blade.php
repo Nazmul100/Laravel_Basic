@@ -16,7 +16,8 @@
         </div>
         <div class="col-4 mt-5">
             <div class="card text-center" style="width: 22rem;">
-                <img src="{{$getUser->image}}" class="card-img-top" alt="...">
+{{--                <img src="Image/.{{$getUser->image}}" class="card-img-top" alt="...">--}}
+                <img src={{asset("Image/".$getUser->image)}} class="card-img-top" alt="..."/>
                 <div class="card-body">
                     <h5 class="card-title">Name:{{$getUser->name}}</h5>
                     <p class="card-text">{{$getUser->bio}}</p>

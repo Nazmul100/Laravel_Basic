@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Create </title>
     @include('component.Header.header')
-
 </head>
 <body>
+@include('component.NavBar.NavBar')
 <div class="container">
-    @include('component.NavBar.NavBar')
     <div class="container">
         <div class="row mt-5">
             <div class="col">

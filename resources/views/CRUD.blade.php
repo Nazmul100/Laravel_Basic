@@ -9,9 +9,9 @@
 
 </head>
 <body>
-
+@include('component.NavBar.NavBar')
 <div class="container">
-    @include('component.NavBar.NavBar')
+
     <div class="container">
         <div class="row mt-5">
             <div class="col">
@@ -34,7 +34,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($Users as $User)
+        @foreach ($UsersList as $User)
         <tr>
             <th scope="row">{{$User->id}}</th>
             <td>{{$User->name}}</td>

@@ -1,9 +1,17 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserInformationController;
 
-
+//homepage
+Route::get('/',[AuthController::class,'home'])->name('home');
+//Log-in page
+Route::get('/login',[AuthController::class,'loginView'])->name('loginView');
+Route::post('/login',[AuthController::class,'login'])->name('login');
+//Registration page
+Route::get('/registration',[AuthController::class,'registrationView'])->name('registrationView');
+Route::post('/registration',[AuthController::class,'registration'])->name('registration');
 //Display Data
 Route::get('/crud',[UserInformationController::class,'index'])->name('CRUD');//display page and get data and show.
 
