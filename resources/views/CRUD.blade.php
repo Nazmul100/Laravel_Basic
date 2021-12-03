@@ -11,6 +11,14 @@
 <body>
 @include('component.NavBar.NavBar')
 <div class="container">
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+            @php
+                Session::forget('success');
+            @endphp
+        </div>
+    @endif
 
     <div class="container">
         <div class="row mt-5">

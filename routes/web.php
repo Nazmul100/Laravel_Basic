@@ -32,7 +32,6 @@ Route::get('/delete/{id}',[UserInformationController::class,'delete'])->name('de
 
 
 
-//Route::get('/edit/{id}',[UserInformationController::class,'edit'])->name('edit');
-//Route::put('/edit/{id}',[UserInformationController::class,'update'])->name('update');
-//Route::get('/delete/{id}',[UserInformationController::class,'destroy'])->name('destroy');
+
+
 

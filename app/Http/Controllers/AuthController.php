@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function home(Request $request){
         $user = auth()->user();
        // dd($user->id);
-        var_dump($user->name);
+        //var_dump($user->name);
         //$getData = DB::table('users')->where ('id',$id)->first();
 
 
